@@ -1,20 +1,3 @@
-// Attempt 1 - Trying to do the data fetching server-side
-
-// async function getStaticProps() {
-//   let todos = [];
-//   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-//   if (!response.ok) {
-//     throw new Error(response.statusText);
-//   }
-//   todos = await response.json();
-
-//   return {
-//     props: {
-//       todos,
-//     },
-//   };
-// }
-
 // data successfully fetched server-side
 'use client';
 import { useEffect, useState } from 'react';
@@ -23,12 +6,11 @@ export function useApi(id) {
   const [todos, setTodos] = useState([]);
 
   function updateTodo(id) {
-    console.log(id);
     const updatedTodos = todos.map(todo => ({
       ...todo, // {id, completed, title}
       completed: todo.id === id ? !todo.completed : todo.completed,
     }));
-    // iterate over all todos and udpate the one that matches the id
+    // iterate over all todos and update the one that matches the id
     setTodos(updatedTodos);
   }
 
