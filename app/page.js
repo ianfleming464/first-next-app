@@ -5,8 +5,6 @@ import Link from 'next/link';
 export default function Home() {
   const { todos, updateTodo } = useApi();
 
-  console.log(todos);
-
   function displayTodos() {
     return todos.map(todo => {
       return (
