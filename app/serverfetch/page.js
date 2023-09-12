@@ -22,21 +22,3 @@ const ServerFetch = async () => {
 };
 
 export default ServerFetch;
-
-// function displayTodos() {
-//   return todos.map(todo => {
-//     return (
-//       <li key={todo.id} className='flex items-center justify-between mb-2'>
-//         <Link href={`/todos/${todo.id}`} key={todo.id}>
-//           <p className='text-lg'>{todo.title}</p>
-//         </Link>
-//         <input
-//           onChange={() => updateTodo(todo.id)}
-//           type='checkbox'
-//           className='h-6 w-6 ml-2'
-//           checked={todo.completed}
-//         />
-//       </li>
-//     );
-//   });
-// }
