@@ -1,4 +1,3 @@
-// data successfully fetched server-side
 'use client';
 import { useEffect, useState } from 'react';
 

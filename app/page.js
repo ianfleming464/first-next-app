@@ -1,12 +1,17 @@
 'use client';
 import { useApi } from './api';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { TodoContext } from './store/todo-context';
 
 export default function Home() {
-  const { todos, updateTodo } = useApi();
-  console.log(todos);
+  const { todos, updateTodo } = useContext(TodoContext);
 
   function displayTodos() {
+    if (todos.length === 0) {
+      return <p className='text-lg'>Loading...</p>;
+    }
+
     return todos.map(todo => {
       return (
         <li key={todo.id} className='flex items-center justify-between mb-2'>
