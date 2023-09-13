@@ -5,12 +5,13 @@ import { TodoContext } from '../../store/todo-context';
 
 export default function ToDo({ params }) {
   const { todos, updateTodo } = useContext(TodoContext);
-  const currentTodo = todos.filter(todo => todo.id === params.id);
-  console.log(params.id);
-  console.log(todos);
-  console.log(currentTodo);
+  const currentTodo = todos.filter(todo => todo.id === Number(params.id))[0]; // turns out params.id is a string. This changes the type to a number. Then, because filter returns an array, we grab the first and only item in the array.
+  console.log(currentTodo, typeof currentTodo);
+  // console.log('params.id data type:', typeof params.id);
 
   if (currentTodo) {
+    console.log('Todo ID:', currentTodo.id);
+    console.log('Todo Title:', currentTodo.title);
     return (
       <main className='flex min-h-screen flex-col items-center justify-between p-24'>
         <h3 className='text-2xl font-bold text-center mb-6'>To-Do Number : {currentTodo.id} </h3>
@@ -23,7 +24,7 @@ export default function ToDo({ params }) {
   } else {
     return (
       <>
-        <h1>Loading...no, error. ERROR!! Nothing to do.</h1>
+        <h1 className='text-2xl font-bold text-center mt-8'>Loading...PLEASE HAVE PATIENCE</h1>
       </>
     );
   }
