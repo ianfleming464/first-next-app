@@ -3,9 +3,14 @@ import { useApi } from './api';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { TodoContext } from './store/todo-context';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from './store/slices/cart-slice';
 
 export default function Home() {
   const { todos, updateTodo } = useContext(TodoContext);
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  console.log(cart);
 
   function displayTodos() {
     if (todos.length === 0) {
@@ -19,7 +24,10 @@ export default function Home() {
             <p className='text-lg'>{todo.title}</p>
           </Link>
           <input
-            onChange={() => updateTodo(todo.id)}
+            onChange={() => {
+              dispatch(addToCart({ item: 'bowl', price: 4.99 }));
+              updateTodo(todo.id);
+            }}
             type='checkbox'
             className='h-6 w-6 ml-2'
             checked={todo.completed}
