@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import cartReducer from './slices/cart-slice';
+import todoReducer from './slices/todo-slice';
 
 const rootReducer = combineReducers({
-  cart: cartReducer,
+  todo: todoReducer,
 });
 
 export default rootReducer;

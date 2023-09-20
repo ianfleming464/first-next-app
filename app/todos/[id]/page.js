@@ -10,8 +10,8 @@ export default function ToDo({ params }) {
   // console.log('params.id data type:', typeof params.id);
 
   if (currentTodo) {
-    console.log('Todo ID:', currentTodo.id);
-    console.log('Todo Title:', currentTodo.title);
+    // console.log('Todo ID:', currentTodo.id);
+    // console.log('Todo Title:', currentTodo.title);
     return (
       <main className='flex min-h-screen flex-col items-center p-24'>
         <h3 className='text-2xl font-bold text-center mb-6'>To-Do Number : {currentTodo.id} </h3>

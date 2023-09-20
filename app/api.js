@@ -4,15 +4,6 @@ import { useEffect, useState } from 'react';
 export function useApi(id) {
   const [todos, setTodos] = useState([]);
 
-  function updateTodo(id) {
-    const updatedTodos = todos.map(todo => ({
-      ...todo, // {id, completed, title}
-      completed: todo.id === id ? !todo.completed : todo.completed,
-    }));
-    // iterate over all todos and update the one that matches the id
-    setTodos(updatedTodos);
-  }
-
   useEffect(() => {
     async function fetchData() {
       const url = id
@@ -32,5 +23,5 @@ export function useApi(id) {
     }
     fetchData();
   }, []);
-  return { todos, updateTodo };
+  return { todos };
 }
