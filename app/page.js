@@ -26,7 +26,7 @@ export default function Home() {
     return todos.map(todo => {
       return (
         <li key={todo.id} className='flex items-center justify-between mb-2'>
-          <Link href={`/todos/${todo.id}`} key={todo.id}>
+          <Link href={`/todo/${todo.id}`} key={todo.id}>
             <p className='text-lg'>{todo.title}</p>
           </Link>
           <input
